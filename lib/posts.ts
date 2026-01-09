@@ -47,9 +47,9 @@ export function getPostsByCategory(category: string): PostMetadata[] {
 
   const fileNames = fs.readdirSync(categoryPath);
   const posts = fileNames
-    .filter((fileName) => fileName.endsWith('.md'))
+    .filter((fileName) => fileName.endsWith('.md') || fileName.endsWith('.markdown'))
     .map((fileName) => {
-      const slug = fileName.replace(/\.md$/, '');
+      const slug = fileName.replace(/\.md$/, '').replace(/\.markdown$/, '');
       const fullPath = path.join(categoryPath, fileName);
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data } = matter(fileContents);
@@ -81,7 +81,11 @@ export function getAllPosts(): PostMetadata[] {
 
 export async function getPostBySlug(category: string, slug: string): Promise<Post | null> {
   try {
-    const fullPath = path.join(postsDirectory, category, `${slug}.md`);
+    // Try .md first, then .markdown
+    let fullPath = path.join(postsDirectory, category, `${slug}.md`);
+    if (!fs.existsSync(fullPath)) {
+      fullPath = path.join(postsDirectory, category, `${slug}.markdown`);
+    }
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
 
