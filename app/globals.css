@@ -1,0 +1,386 @@
+@import "tailwindcss";
+
+/* Custom styles for better text formatting */
+.prose em {
+  font-style: normal !important;
+  font-weight: 400;
+}
+
+.prose blockquote em {
+  font-style: italic !important;
+}
+
+.prose blockquote p {
+  font-style: italic;
+  margin: 0;
+}
+
+.prose p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.prose blockquote {
+  margin: 1.5rem 0;
+  font-style: normal;
+}
+
+.prose hr {
+  margin: 2rem 0;
+}
+
+/* Code blocks with line numbers - GitHub style */
+.prose pre {
+  padding: 0;
+  position: relative;
+  background: #0d1117 !important;
+  border-radius: 6px;
+  overflow: visible;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border: 1px solid #30363d;
+  margin: 1.5rem 0;
+}
+
+.prose pre code {
+  background: transparent !important;
+  padding: 1rem !important;
+  border-radius: 0 !important;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  tab-size: 4;
+  overflow-x: auto;
+  color: #e6edf3 !important;
+}
+
+/* Code block wrapper */
+.prose pre code .code-block-wrapper {
+  display: flex;
+  min-width: 100%;
+}
+
+/* Line numbers column */
+.prose pre code .line-numbers {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  padding-right: 1rem;
+  padding-left: 0.75rem;
+  background: rgba(110, 118, 129, 0.08);
+  border-right: 1px solid #30363d;
+  user-select: none;
+  text-align: right;
+  min-width: 3.5rem;
+  flex-shrink: 0;
+}
+
+.prose pre code .line-number {
+  color: #8b949e !important;
+  font-size: 0.75rem;
+  line-height: 1.6rem;
+  display: block;
+}
+
+/* Code content column */
+.prose pre code .code-content {
+  padding: 1rem;
+  flex: 1;
+  overflow-x: auto;
+  min-width: 0;
+}
+
+/* Syntax Highlighting - Dark Theme (GitHub Dark) */
+.hljs {
+  color: #e6edf3;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #8b949e;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #ff7b72;
+}
+
+.hljs-string,
+.hljs-doctag,
+.hljs-template-literal {
+  color: #a5d6ff;
+}
+
+.hljs-number,
+.hljs-literal {
+  color: #79c0ff;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id,
+.hljs-function {
+  color: #d2a8ff;
+}
+
+.hljs-type,
+.hljs-class .hljs-title,
+.hljs-built_in {
+  color: #ffa657;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #7ee787;
+}
+
+.hljs-variable,
+.hljs-template-variable {
+  color: #ffa657;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #a5d6ff;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #ffa657;
+}
+
+.hljs-meta {
+  color: #8b949e;
+}
+
+.hljs-deletion {
+  color: #ff7b72;
+  background-color: rgba(255, 123, 114, 0.15);
+}
+
+.hljs-addition {
+  color: #7ee787;
+  background-color: rgba(126, 231, 135, 0.15);
+}
+
+/* Syntax Highlighting - Light Theme (GitHub Light) */
+:not(.dark) .hljs {
+  color: #24292f;
+}
+
+:not(.dark) .hljs-comment,
+:not(.dark) .hljs-quote {
+  color: #6e7781;
+  font-style: italic;
+}
+
+:not(.dark) .hljs-keyword,
+:not(.dark) .hljs-selector-tag {
+  color: #cf222e;
+}
+
+:not(.dark) .hljs-string,
+:not(.dark) .hljs-doctag,
+:not(.dark) .hljs-template-literal {
+  color: #0a3069;
+}
+
+:not(.dark) .hljs-number,
+:not(.dark) .hljs-literal {
+  color: #0550ae;
+}
+
+:not(.dark) .hljs-title,
+:not(.dark) .hljs-section,
+:not(.dark) .hljs-selector-id,
+:not(.dark) .hljs-function {
+  color: #8250df;
+}
+
+:not(.dark) .hljs-type,
+:not(.dark) .hljs-class .hljs-title,
+:not(.dark) .hljs-built_in {
+  color: #953800;
+}
+
+:not(.dark) .hljs-tag,
+:not(.dark) .hljs-name,
+:not(.dark) .hljs-attribute {
+  color: #116329;
+}
+
+:not(.dark) .hljs-variable,
+:not(.dark) .hljs-template-variable {
+  color: #953800;
+}
+
+:not(.dark) .hljs-regexp,
+:not(.dark) .hljs-link {
+  color: #0a3069;
+}
+
+:not(.dark) .hljs-symbol,
+:not(.dark) .hljs-bullet {
+  color: #953800;
+}
+
+:not(.dark) .hljs-meta {
+  color: #6e7781;
+}
+
+:not(.dark) .hljs-deletion {
+  color: #cf222e;
+  background-color: rgba(255, 129, 130, 0.15);
+}
+
+:not(.dark) .hljs-addition {
+  color: #116329;
+  background-color: rgba(46, 160, 67, 0.15);
+}
+
+/* Copy button */
+.copy-code-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(110, 118, 129, 0.1);
+  border: 1px solid rgba(110, 118, 129, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #8b949e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.copy-code-button:hover {
+  background: rgba(110, 118, 129, 0.2);
+  color: #e6edf3;
+}
+
+:not(.dark) .copy-code-button {
+  color: #57606a;
+  background: rgba(110, 118, 129, 0.08);
+}
+
+:not(.dark) .copy-code-button:hover {
+  background: rgba(110, 118, 129, 0.15);
+  color: #24292f;
+}
+
+.copy-code-button.copied {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #10b981;
+}
+
+.copy-code-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* KaTeX math rendering */
+.katex {
+  font-size: 1.1em;
+}
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1rem 0;
+}
+
+.katex-display > .katex {
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Force math to be visible in BOTH themes */
+.prose .katex,
+.prose .katex * {
+  color: #00ff00 !important; /* Bright green for sci-fi look */
+}
+
+.dark .prose .katex,
+.dark .prose .katex * {
+  color: #00ff88 !important;
+}
+
+:not(.dark) .prose .katex,
+:not(.dark) .prose .katex * {
+  color: #006644 !important;
+}
+
+/* Retro sci-fi styling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Force text visibility in light theme */
+:not(.dark) h1,
+:not(.dark) h2,
+:not(.dark) h3,
+:not(.dark) h4,
+:not(.dark) h5,
+:not(.dark) h6 {
+  color: #111827 !important;
+}
+
+:not(.dark) p,
+:not(.dark) span,
+:not(.dark) li {
+  color: #1f2937;
+}
+
+/* Dark theme text */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: #f3f4f6 !important;
+}
+
+.dark p,
+.dark span,
+.dark li {
+  color: #e5e7eb;
+}
+
+/* Sci-fi terminal cursor effect */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Scanline effect for sci-fi */
+.scanlines::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 0, 0.03) 2px,
+    rgba(0, 255, 0, 0.03) 4px
+  );
+  pointer-events: none;
+}
