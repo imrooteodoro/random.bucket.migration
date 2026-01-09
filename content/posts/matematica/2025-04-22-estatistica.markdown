@@ -12,6 +12,3 @@ tags: [math, science, latex]
 Apreciem a beleza da fórmula do desvio-padrão.
 
 $$\sigma = \sqrt{\frac{\sum_{i=1}^{n}(X_i - \bar{X})^2}{n - 1}}$$
-
-
-{% include mathjax.html %}
