@@ -38,6 +38,16 @@ export function getAllCategories(): string[] {
   });
 }
 
+// Helper function to parse date strings into comparable timestamps
+function parseDate(dateValue: string | Date): number {
+  if (dateValue instanceof Date) {
+    return dateValue.getTime();
+  }
+  // Handle string dates - new Date() handles most formats
+  const parsed = new Date(dateValue);
+  return isNaN(parsed.getTime()) ? 0 : parsed.getTime();
+}
+
 export function getPostsByCategory(category: string): PostMetadata[] {
   const categoryPath = path.join(postsDirectory, category);
   
@@ -64,7 +74,8 @@ export function getPostsByCategory(category: string): PostMetadata[] {
       };
     });
 
-  return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+  // Sort by date descending (newest first)
+  return posts.sort((a, b) => parseDate(b.date) - parseDate(a.date));
 }
 
 export function getAllPosts(): PostMetadata[] {
@@ -76,7 +87,8 @@ export function getAllPosts(): PostMetadata[] {
     allPosts.push(...posts);
   });
 
-  return allPosts.sort((a, b) => (a.date < b.date ? 1 : -1));
+  // Sort by date descending (newest first)
+  return allPosts.sort((a, b) => parseDate(b.date) - parseDate(a.date));
 }
 
 export async function getPostBySlug(category: string, slug: string): Promise<Post | null> {
