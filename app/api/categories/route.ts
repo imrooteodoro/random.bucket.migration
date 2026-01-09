@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { getAllCategories, getPostsByCategory } from '@/lib/posts';
 
+export const dynamic = "force-static";
+
 export async function GET() {
   try {
     const categories = getAllCategories();
