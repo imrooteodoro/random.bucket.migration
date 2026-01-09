@@ -1,7 +1,7 @@
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { CodeBlockEnhancer } from '@/components/code-block-enhancer';
-import { getAllCategories, getPostsByCategory, getPostBySlug, getCategoryInfo } from '@/lib/posts';
+import { getAllCategories, getPostsByCategory, getPostBySlug, getCategoryInfo, getCategoryColor } from '@/lib/posts';
 import { notFound } from 'next/navigation';
 import { Calendar, User, ArrowLeft } from 'lucide-react';
 import { format } from 'date-fns';
@@ -38,18 +38,7 @@ export default async function PostPage({ params }: PageProps) {
   }
 
   const categoryInfo = getCategoryInfo(category);
-
-  const getCategoryColor = (cat: string) => {
-    const colors: Record<string, string> = {
-      matematica: 'border-cyan-500 text-cyan-400',
-      ciencia: 'border-purple-500 text-purple-400',
-      tecnologia: 'border-green-500 text-green-400',
-      reflexoes: 'border-amber-500 text-amber-400',
-      inmemoriam: 'border-gray-500 text-gray-400',
-      music: 'border-pink-500 text-pink-400',
-    };
-    return colors[cat] || 'border-gray-500 text-gray-400';
-  };
+  const categoryColor = getCategoryColor(category);
 
   return (
     <div className="min-h-screen flex flex-col bg-black">
@@ -67,7 +56,7 @@ export default async function PostPage({ params }: PageProps) {
         <article className="max-w-4xl mx-auto">
           <header className="mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <span className={`px-4 py-2 border-2 font-mono text-sm font-semibold ${getCategoryColor(category)}`}>
+              <span className={`px-4 py-2 border-2 font-mono text-sm font-semibold ${categoryColor.border} ${categoryColor.textLight}`}>
                 {categoryInfo.icon} {categoryInfo.name}
               </span>
             </div>

@@ -6,31 +6,36 @@ import { Calendar, User, ArrowRight, FileText, Pin } from 'lucide-react';
 import { format } from 'date-fns';
 import type { PostMetadata } from '@/lib/posts';
 
+// Cores das categorias - sincronizadas com lib/posts.ts
+// Se adicionar nova categoria, adicione aqui também OU ela usará a cor padrão (gray)
+const categoryColors: Record<string, { border: string; text: string }> = {
+  matematica: { border: 'border-cyan-500', text: 'text-cyan-500' },
+  ciencia: { border: 'border-purple-500', text: 'text-purple-500' },
+  tecnologia: { border: 'border-green-500', text: 'text-green-500' },
+  reflexoes: { border: 'border-amber-500', text: 'text-amber-500' },
+  inmemoriam: { border: 'border-gray-500', text: 'text-gray-500' },
+  music: { border: 'border-pink-500', text: 'text-pink-500' },
+  random: { border: 'border-orange-500', text: 'text-orange-500' },
+  psi: { border: 'border-indigo-500', text: 'text-indigo-500' },
+};
+
+export function getCategoryColorClient(category: string) {
+  return categoryColors[category] || { border: 'border-gray-500', text: 'text-gray-500' };
+}
+
 interface PostCardProps {
   post: PostMetadata;
   index: number;
 }
 
 export function PostCard({ post, index }: PostCardProps) {
-  const getCategoryColor = (category: string) => {
-    const colors: Record<string, { border: string; text: string }> = {
-      matematica: { border: 'border-cyan-500', text: 'text-cyan-500' },
-      ciencia: { border: 'border-purple-500', text: 'text-purple-500' },
-      tecnologia: { border: 'border-green-500', text: 'text-green-500' },
-      reflexoes: { border: 'border-amber-500', text: 'text-amber-500' },
-      inmemoriam: { border: 'border-gray-500', text: 'text-gray-500' },
-      music: { border: 'border-pink-500', text: 'text-pink-500' },
-    };
-    return colors[category] || { border: 'border-gray-500', text: 'text-gray-500' };
-  };
-
-  const colorScheme = getCategoryColor(post.category);
+  const colorScheme = getCategoryColorClient(post.category);
 
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1 }}
+      transition={{ delay: index * 0.1 }}}
       className="group"
     >
       <Link href={`/blog/${post.category}/${post.slug}`}>

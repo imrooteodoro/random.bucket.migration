@@ -145,39 +145,82 @@ export async function getPostBySlug(category: string, slug: string): Promise<Pos
   }
 }
 
-export function getCategoryInfo(category: string) {
-  const categoryMap: Record<string, { name: string; description: string; icon: string }> = {
-    matematica: {
-      name: 'Mathematics',
-      description: 'Exploring patterns, numbers and abstract structures',
-      icon: '∑',
-    },
-    ciencia: {
-      name: 'Science',
-      description: 'Discovering the mysteries of the universe',
-      icon: '⚛',
-    },
-    tecnologia: {
-      name: 'Technology',
-      description: 'Innovation and development in the digital world',
-      icon: '⚡',
-    },
-    reflexoes: {
-      name: 'Thoughts',
-      description: 'Reflections on learning and knowledge',
-      icon: '💭',
-    },
-    inmemoriam: {
-      name: 'In Memoriam',
-      description: 'Memories and tributes to loved ones',
-      icon: '🕊️',
-    },
-    music: {
-      name: 'Music',
-      description: 'Analysis, reflections and discoveries in music',
-      icon: '🎵',
-    },
-  };
+// Configuração centralizada de categorias - EDITE APENAS AQUI para adicionar novas categorias
+const categoryConfig: Record<string, { 
+  name: string; 
+  description: string; 
+  icon: string;
+  color: string; // Tailwind color name (cyan, purple, green, etc.)
+}> = {
+  matematica: {
+    name: 'Mathematics',
+    description: 'Exploring patterns, numbers and abstract structures',
+    icon: '∑',
+    color: 'cyan',
+  },
+  ciencia: {
+    name: 'Science',
+    description: 'Discovering the mysteries of the universe',
+    icon: '⚛',
+    color: 'purple',
+  },
+  tecnologia: {
+    name: 'Technology',
+    description: 'Innovation and development in the digital world',
+    icon: '⚡',
+    color: 'green',
+  },
+  reflexoes: {
+    name: 'Thoughts',
+    description: 'Reflections on learning and knowledge',
+    icon: '💭',
+    color: 'amber',
+  },
+  inmemoriam: {
+    name: 'In Memoriam',
+    description: 'Memories and tributes to loved ones',
+    icon: '🕊️',
+    color: 'gray',
+  },
+  music: {
+    name: 'Music',
+    description: 'Analysis, reflections and discoveries in music',
+    icon: '🎵',
+    color: 'pink',
+  },
+  random: {
+    name: 'Random',
+    description: 'Random thoughts and miscellaneous content',
+    icon: '🎲',
+    color: 'orange',
+  },
+  psi: {
+    name: 'Psi',
+    description: 'Psychology, mind and human behavior',
+    icon: '🧠',
+    color: 'indigo',
+  },
+};
 
-  return categoryMap[category] || { name: category, description: '', icon: '📝' };
+export function getCategoryInfo(category: string) {
+  const config = categoryConfig[category];
+  if (config) {
+    return { name: config.name, description: config.description, icon: config.icon };
+  }
+  // Fallback para categorias não configuradas - usa o nome da pasta capitalizado
+  return { 
+    name: category.charAt(0).toUpperCase() + category.slice(1), 
+    description: '', 
+    icon: '📝' 
+  };
+}
+
+export function getCategoryColor(category: string) {
+  const config = categoryConfig[category];
+  const color = config?.color || 'gray';
+  return {
+    border: `border-${color}-500`,
+    text: `text-${color}-500`,
+    textLight: `text-${color}-400`,
+  };
 }
