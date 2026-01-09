@@ -1,7 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-import { useState } from 'react';
 import { Terminal } from 'lucide-react';
 
 interface ProfileAvatarProps {
@@ -10,8 +8,6 @@ interface ProfileAvatarProps {
 }
 
 export function ProfileAvatar({ size = 'md', className = '' }: ProfileAvatarProps) {
-  const [imageError, setImageError] = useState(false);
-
   const sizeClasses = {
     sm: 'w-10 h-10',
     md: 'w-32 h-32',
@@ -26,19 +22,9 @@ export function ProfileAvatar({ size = 'md', className = '' }: ProfileAvatarProp
 
   return (
     <div className={`${sizeClasses[size]} relative overflow-hidden border-2 border-cyan-400 bg-black ${className}`}>
-      {!imageError ? (
-        <Image
-          src="/random.bucket.migration/me.jpeg"
-          alt="Profile"
-          fill
-          className="object-cover"
-          onError={() => setImageError(true)}
-        />
-      ) : (
-        <div className="w-full h-full bg-black flex items-center justify-center">
-          <Terminal className={`${iconSizes[size]} text-cyan-400`} />
-        </div>
-      )}
+      <div className="w-full h-full bg-black flex items-center justify-center">
+        <Terminal className={`${iconSizes[size]} text-cyan-400`} />
+      </div>
       {/* Scanline effect */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/5 to-transparent pointer-events-none" />
     </div>

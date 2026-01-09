@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Calendar, User, ArrowRight, FileText } from 'lucide-react';
+import { Calendar, User, ArrowRight, FileText, Pin } from 'lucide-react';
 import { format } from 'date-fns';
 import type { PostMetadata } from '@/lib/posts';
 
@@ -33,13 +33,19 @@ export function PostCard({ post, index }: PostCardProps) {
       className="group"
     >
       <Link href={`/blog/${post.category}/${post.slug}`}>
-        <div className={`h-full p-4 border-2 ${colorScheme.border} bg-gray-950 hover:shadow-lg hover:shadow-cyan-900/20 transition-all duration-200`}>
+        <div className={`h-full p-4 border-2 ${colorScheme.border} bg-gray-950 hover:shadow-lg hover:shadow-cyan-900/20 transition-all duration-200 ${post.pinned ? 'ring-2 ring-yellow-500/50' : ''}`}>
           {/* Header */}
           <div className={`flex items-center gap-2 mb-3 pb-2 border-b ${colorScheme.border}`}>
             <FileText className={`w-4 h-4 ${colorScheme.text}`} />
-            <span className={`font-mono text-xs ${colorScheme.text}`}>
+            <span className={`font-mono text-xs ${colorScheme.text} flex-1`}>
               /{post.category}/{post.slug}.md
             </span>
+            {post.pinned && (
+              <span className="flex items-center gap-1 text-yellow-500 font-mono text-xs">
+                <Pin className="w-3 h-3" />
+                PINNED
+              </span>
+            )}
           </div>
 
           {/* Title */}

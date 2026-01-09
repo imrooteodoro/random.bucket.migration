@@ -19,6 +19,7 @@ export interface Post {
   category: string;
   author: string;
   content: string;
+  pinned?: boolean;
 }
 
 export interface PostMetadata {
@@ -28,6 +29,7 @@ export interface PostMetadata {
   excerpt: string;
   category: string;
   author: string;
+  pinned?: boolean;
 }
 
 export function getAllCategories(): string[] {
@@ -71,11 +73,16 @@ export function getPostsByCategory(category: string): PostMetadata[] {
         excerpt: data.excerpt,
         category: data.category,
         author: data.author,
+        pinned: data.pinned || false,
       };
     });
 
-  // Sort by date descending (newest first)
-  return posts.sort((a, b) => parseDate(b.date) - parseDate(a.date));
+  // Sort: pinned posts first, then by date descending (newest first)
+  return posts.sort((a, b) => {
+    if (a.pinned && !b.pinned) return -1;
+    if (!a.pinned && b.pinned) return 1;
+    return parseDate(b.date) - parseDate(a.date);
+  });
 }
 
 export function getAllPosts(): PostMetadata[] {
@@ -87,8 +94,12 @@ export function getAllPosts(): PostMetadata[] {
     allPosts.push(...posts);
   });
 
-  // Sort by date descending (newest first)
-  return allPosts.sort((a, b) => parseDate(b.date) - parseDate(a.date));
+  // Sort: pinned posts first, then by date descending (newest first)
+  return allPosts.sort((a, b) => {
+    if (a.pinned && !b.pinned) return -1;
+    if (!a.pinned && b.pinned) return 1;
+    return parseDate(b.date) - parseDate(a.date);
+  });
 }
 
 export async function getPostBySlug(category: string, slug: string): Promise<Post | null> {
