@@ -46,6 +46,7 @@ export default async function PostPage({ params }: PageProps) {
       tecnologia: 'border-green-500 text-green-400',
       reflexoes: 'border-amber-500 text-amber-400',
       inmemoriam: 'border-gray-500 text-gray-400',
+      music: 'border-pink-500 text-pink-400',
     };
     return colors[cat] || 'border-gray-500 text-gray-400';
   };

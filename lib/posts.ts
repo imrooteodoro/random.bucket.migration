@@ -172,6 +172,11 @@ export function getCategoryInfo(category: string) {
       description: 'Memories and tributes to loved ones',
       icon: '🕊️',
     },
+    music: {
+      name: 'Music',
+      description: 'Analysis, reflections and discoveries in music',
+      icon: '🎵',
+    },
   };
 
   return categoryMap[category] || { name: category, description: '', icon: '📝' };

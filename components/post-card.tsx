@@ -19,6 +19,7 @@ export function PostCard({ post, index }: PostCardProps) {
       tecnologia: { border: 'border-green-500', text: 'text-green-500' },
       reflexoes: { border: 'border-amber-500', text: 'text-amber-500' },
       inmemoriam: { border: 'border-gray-500', text: 'text-gray-500' },
+      music: { border: 'border-pink-500', text: 'text-pink-500' },
     };
     return colors[category] || { border: 'border-gray-500', text: 'text-gray-500' };
   };
