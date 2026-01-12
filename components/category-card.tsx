@@ -33,7 +33,7 @@ const categoryInfo: Record<string, { name: string; description: string; icon: st
     icon: '◈',
   },
   inmemoriam: {
-    name: 'MEMO',
+    name: 'IN-MEMORIAM',
     description: 'In Memoriam',
     icon: '🕊️',
   },
