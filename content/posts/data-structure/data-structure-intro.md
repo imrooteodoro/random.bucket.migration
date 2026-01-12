@@ -250,13 +250,60 @@ grafo.exibir()
 
 Neste artigo, apresentamos uma visão geral das estruturas de dados mais fundamentais na programação. Cada estrutura tem suas características específicas e casos de uso ideais:
 
-| Estrutura | Acesso | Inserção | Remoção | Uso Típico |
-|-----------|--------|----------|---------|------------|
-| Array | O(1) | O(n) | O(n) | Dados indexados |
-| Lista Ligada | O(n) | O(1) | O(1) | Inserções frequentes |
-| Pilha | O(n) | O(1) | O(1) | Desfazer operações |
-| Fila | O(n) | O(1) | O(1) | Processamento em ordem |
-| Árvore | O(log n) | O(log n) | O(log n) | Busca eficiente |
-| Grafo | O(V+E) | O(1) | O(V+E) | Redes e conexões |
+<table>
+  <thead>
+    <tr>
+      <th>Estrutura</th>
+      <th>Acesso</th>
+      <th>Inserção</th>
+      <th>Remoção</th>
+      <th>Uso Típico</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Array</td>
+      <td>O(1)</td>
+      <td>O(n)</td>
+      <td>O(n)</td>
+      <td>Dados indexados</td>
+    </tr>
+    <tr>
+      <td>Lista Ligada</td>
+      <td>O(n)</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+      <td>Inserções frequentes</td>
+    </tr>
+    <tr>
+      <td>Pilha</td>
+      <td>O(n)</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+      <td>Desfazer operações</td>
+    </tr>
+    <tr>
+      <td>Fila</td>
+      <td>O(n)</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+      <td>Processamento em ordem</td>
+    </tr>
+    <tr>
+      <td>Árvore</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+      <td>Busca eficiente</td>
+    </tr>
+    <tr>
+      <td>Grafo</td>
+      <td>O(V+E)</td>
+      <td>O(1)</td>
+      <td>O(V+E)</td>
+      <td>Redes e conexões</td>
+    </tr>
+  </tbody>
+</table>
 
 Nos próximos artigos, exploraremos cada uma dessas estruturas em maior profundidade!                                                    
