@@ -1,7 +1,7 @@
 ---
 title: "Ser triste é uma escolha."
 author: "Adelson, neto de Sebastiana Maria Conceição"
-category: "inmemoriam"
+category: "in-memoriam"
 date: "2025-12-26"
 excerpt: "Em memória da minha querida avó Sebastiana Maria Conceição."
 dedication: "Em memória da minha querida avó Sebastiana."
