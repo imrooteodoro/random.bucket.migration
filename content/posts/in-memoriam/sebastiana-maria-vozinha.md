@@ -31,6 +31,16 @@ Sentirei muito a sua falta, vó… Você sempre estará viva nas minhas lembran�
     width="200"
     height="200"
     class="block"
-    alt="Sebastiana Maria Conceição"
+    alt="Vozinha e mãe"
+  />
+</div>
+
+<div class="flex justify-center mt-6">
+  <img
+    src="/random.bucket/blog-photos/vozinha/maninha-vozinha-eu.jpeg"
+    width="200"
+    height="200"
+    class="block"
+    alt="Maninha, Vozinha e eu"
   />
 </div>
